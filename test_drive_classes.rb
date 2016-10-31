@@ -26,14 +26,26 @@ class Car < Vehicle
 end
 
 class Truck < Vehicle
+
+  attr_accessor :cargo
+
+  def load_bed(contents)
+    puts "Securing #{contents} in the truck bed"
+    @cargo = contents
+  end
 end
 
 class Motorcycle < Vehicle
+  def steer
+    puts "Turn front wheel"
+  end
 end
 
 truck = Truck.new
 truck.accelerate
 truck.steer
+truck.load_bed("259 bouncy balls")
+puts "The truck is carrying #{truck.cargo}"
 
 car = Car.new
 car.odometer = 11432
